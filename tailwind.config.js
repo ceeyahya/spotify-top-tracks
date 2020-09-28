@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -5,8 +7,18 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Spartan', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        spotify: {
+          lgreen: '#1ed760',
+          green: '#1db954',
+        },
+      },
+    },
   },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/ui')],
 };
