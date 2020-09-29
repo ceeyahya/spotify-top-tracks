@@ -74,7 +74,7 @@ function App() {
             </span>
           </div>
           <Paragraph>
-            a little service that allows yout to get your spotify top tracks
+            a little service that allows you to get your spotify top tracks
           </Paragraph>
           <SpotifyAuth
             title="Get Started with Spotify"
