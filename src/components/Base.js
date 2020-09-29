@@ -1,6 +1,24 @@
 import React from 'react';
 
-export default function Card({ track }) {
+export function Header({ children }) {
+  return (
+    <h1 className="mt-4 text-4xl font-black text-gray-100 ">{children}</h1>
+  );
+}
+
+export function Paragraph({ children }) {
+  return <p className="max-w-3xl mt-4 text-lg text-gray-500">{children}</p>;
+}
+
+export function GridLayout({ children }) {
+  return (
+    <ul className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-2 ">
+      {children}
+    </ul>
+  );
+}
+
+export function Card({ track }) {
   return (
     <li className="col-span-1 bg-gray-800 rounded-sm">
       <div className="flex items-start justify-between w-full p-6 space-x-6">

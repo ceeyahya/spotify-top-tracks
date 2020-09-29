@@ -3,15 +3,16 @@ import { SpotifyAuth, Scopes } from 'react-spotify-auth';
 import Cookies from 'js-cookie';
 import { SpotifyApiContext, User, UserTop } from 'react-spotify-api';
 
+import { Header, Paragraph, Card, GridLayout } from './components/Base';
 import Layout from './components/Layout';
-import Card from './components/Card';
 
 function App() {
   const [authToken, setAuthToken] = useState();
+  const token = Cookies.get('spotifyAuthToken');
 
   useEffect(() => {
     setAuthToken(Cookies.get('spotifyAuthToken'));
-  }, [Cookies.get('spotifyAuthToken')]);
+  }, [token]);
 
   function logout() {
     Cookies.remove('spotifyAuthToken');
@@ -22,76 +23,80 @@ function App() {
     <Layout>
       {Cookies.get('spotifyAuthToken') ? (
         <SpotifyApiContext.Provider value={authToken}>
-          <div className="flex items-center justify-between">
-            <User>
-              {(user) => {
-                if (user && user.data) {
-                  return (
-                    <span className="font-medium text-gray-100">
-                      Hello, {user.data.display_name}
-                    </span>
-                  );
-                } else {
-                  return <p>fetching user</p>;
-                }
-              }}
-            </User>
+          <User>
+            {(user) =>
+              user && user.data ? (
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-gray-100">
+                    Hello, {user.data.display_name}
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="px-3 py-2 text-white transition duration-150 ease-in-out bg-red-500 rounded-md hover:bg-red-600 focus:bg-red-800"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <p className="text-lg text-center text-gray-100">
+                  Fetching your profile ...
+                </p>
+              )
+            }
+          </User>
 
-            <button
-              onClick={logout}
-              className="px-3 py-2 text-white transition duration-150 ease-in-out bg-red-500 rounded-md hover:bg-red-600 focus:bg-red-800"
-            >
-              Logout
-            </button>
-          </div>
-          <h1 className="mt-4 text-4xl font-black text-gray-100 ">
+          <Header>
             Here are the songs you listened to the most these last 4 weeks.
-          </h1>
-          <p className="max-w-3xl text-lg text-gray-500">
+          </Header>
+          <Paragraph>
             I hope it's what you were expecting cause spotify doesn't lie... ,
             you can save or share your top tracks using the buttons below
-          </p>
+          </Paragraph>
 
-          <ul className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-2 ">
+          <GridLayout>
             <UserTop type="tracks">
-              {(tracks, loading, error) =>
-                tracks && tracks.data
-                  ? tracks.data.items.slice(0, 10).map((track) => {
-                      return (
-                        <>
-                          <Card track={track} />
-                        </>
-                      );
-                    })
-                  : null
+              {(tracks) =>
+                tracks && tracks.data ? (
+                  tracks.data.items.slice(0, 10).map((track) => {
+                    return <Card track={track} key={track.id} />;
+                  })
+                ) : (
+                  <p className="text-lg text-center text-gray-100">
+                    Looking for your top tracks ...
+                  </p>
+                )
               }
             </UserTop>
-          </ul>
+          </GridLayout>
         </SpotifyApiContext.Provider>
       ) : (
         <div className="py-48 mb-48">
-          <h1 className="text-4xl font-black text-gray-100">TopTracks</h1>
+          <Header>TopTracks</Header>
           <div className="flex items-center mt-2 text-base">
             <span className="italic text-gray-500">tɑp træks</span>
             <span className="px-3 py-1 ml-4 text-gray-500 bg-gray-800 rounded-full">
               noun
             </span>
           </div>
-          <p className="max-w-xl mt-4 text-lg text-gray-500">
+          <Paragraph>
             a little service that allows yout to get your spotify top tracks and
             share them with other people
-          </p>
+          </Paragraph>
           <SpotifyAuth
             title="Get Started with Spotify"
             logoClassName="h-8 w-8 mr-3"
             btnClassName="flex items-center font-bold text-lg px-4 py-3 rounded-md bg-gray-100 mt-4 bg-spotify-lgreen hover:bg-spotify-green transition ease-in-out duration-150"
-            redirectUri="http://localhost:3000/callback"
+            redirectUri={
+              process.env === 'development'
+                ? 'http://localhost:3000/callback'
+                : 'https://toptracks.vercel.app/callback'
+            }
             clientID="af1c7f3117414a71b1ae375d258ea6d9"
             scopes={[
               Scopes.userReadPrivate,
               'user-read-email',
               'user-top-read',
-            ]} // either style will work
+            ]}
           />
         </div>
       )}
