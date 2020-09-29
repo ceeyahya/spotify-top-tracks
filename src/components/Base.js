@@ -10,9 +10,12 @@ export function Paragraph({ children }) {
   return <p className="max-w-3xl mt-4 text-lg text-gray-500">{children}</p>;
 }
 
-export function GridLayout({ children }) {
+export function GridLayout({ children }, ref) {
   return (
-    <ul className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-2 ">
+    <ul
+      className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-2"
+      ref={ref}
+    >
       {children}
     </ul>
   );

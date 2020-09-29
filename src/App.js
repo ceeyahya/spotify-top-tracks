@@ -48,11 +48,6 @@ function App() {
           <Header>
             Here are the songs you listened to the most these last 4 weeks.
           </Header>
-          <Paragraph>
-            I hope it's what you were expecting cause spotify doesn't lie... ,
-            you can save or share your top tracks using the buttons below
-          </Paragraph>
-
           <GridLayout>
             <UserTop type="tracks">
               {(tracks) =>
@@ -70,7 +65,7 @@ function App() {
           </GridLayout>
         </SpotifyApiContext.Provider>
       ) : (
-        <div className="py-48 mb-48">
+        <div className="py-16 lg:py-48 lg:mb-48">
           <Header>TopTracks</Header>
           <div className="flex items-center mt-2 text-base">
             <span className="italic text-gray-500">tɑp træks</span>
@@ -79,8 +74,7 @@ function App() {
             </span>
           </div>
           <Paragraph>
-            a little service that allows yout to get your spotify top tracks and
-            share them with other people
+            a little service that allows yout to get your spotify top tracks
           </Paragraph>
           <SpotifyAuth
             title="Get Started with Spotify"
