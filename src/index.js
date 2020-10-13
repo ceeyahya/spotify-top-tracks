@@ -16,10 +16,10 @@ ReactDOM.render(
     <App />
     <Layout>
       <div className="static bottom-0">
-        <div className="max-w-screen-xl mx-auto py-14 md:flex md:items-center md:justify-between">
+        <div className="max-w-screen-xl py-2 mx-auto md:flex md:items-center md:justify-between">
           <div className="mt-4 mb-4 md:mt-0 md:order-1">
             <p className="text-base leading-6 text-center text-gray-500">
-              <span role="img" className="ml-2" aria-label="computer man emoji">
+              <span role="img" className="mr-2" aria-label="computer man emoji">
                 👨🏽‍💻
               </span>{' '}
               Developed by{' '}

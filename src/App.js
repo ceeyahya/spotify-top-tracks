@@ -52,7 +52,7 @@ function App() {
             <UserTop type="tracks">
               {(tracks) =>
                 tracks && tracks.data ? (
-                  tracks.data.items.slice(0, 10).map((track) => {
+                  tracks.data.items.slice(0, 12).map((track) => {
                     return <Card track={track} key={track.id} />;
                   })
                 ) : (
@@ -65,7 +65,7 @@ function App() {
           </GridLayout>
         </SpotifyApiContext.Provider>
       ) : (
-        <div className="mt-32 lg:mt-64">
+        <div className="py-16 md:py-64">
           <Header>TopTracks</Header>
           <div className="flex items-center mt-2 text-base">
             <span className="italic text-gray-500">tɑp træks</span>

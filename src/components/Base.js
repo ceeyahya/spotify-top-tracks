@@ -1,7 +1,11 @@
 import React from 'react';
 
 export function Header({ children }) {
-  return <h1 className="mt-4 text-4xl font-bold text-gray-900 ">{children}</h1>;
+  return (
+    <h1 className="max-w-3xl mt-2 text-2xl font-bold text-gray-900 md:text-3xl lg:text-4xl">
+      {children}
+    </h1>
+  );
 }
 
 export function Paragraph({ children }) {
@@ -11,7 +15,7 @@ export function Paragraph({ children }) {
 export function GridLayout({ children }, ref) {
   return (
     <ul
-      className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-2"
+      className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3"
       ref={ref}
     >
       {children}
