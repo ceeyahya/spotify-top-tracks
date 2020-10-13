@@ -27,7 +27,7 @@ function App() {
             {(user) =>
               user && user.data ? (
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-gray-100">
+                  <span className="font-medium text-gray-900">
                     Hello, {user.data.display_name}
                   </span>
                   <button
@@ -38,7 +38,7 @@ function App() {
                   </button>
                 </div>
               ) : (
-                <p className="text-lg text-center text-gray-100">
+                <p className="text-lg text-center text-gray-900">
                   Fetching your profile ...
                 </p>
               )
@@ -56,7 +56,7 @@ function App() {
                     return <Card track={track} key={track.id} />;
                   })
                 ) : (
-                  <p className="text-lg text-center text-gray-100">
+                  <p className="text-lg text-center text-gray-900">
                     Looking for your top tracks ...
                   </p>
                 )
@@ -65,11 +65,11 @@ function App() {
           </GridLayout>
         </SpotifyApiContext.Provider>
       ) : (
-        <div className="py-16 lg:py-48 lg:mb-48">
+        <div className="mt-32 lg:mt-64">
           <Header>TopTracks</Header>
           <div className="flex items-center mt-2 text-base">
             <span className="italic text-gray-500">tɑp træks</span>
-            <span className="px-3 py-1 ml-4 text-gray-500 bg-gray-800 rounded-full">
+            <span className="px-3 py-1 ml-4 text-gray-400 bg-gray-200 rounded-full">
               noun
             </span>
           </div>

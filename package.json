@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "9.8.6",
+    "fontsource-epilogue": "^3.0.9",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -15,8 +16,7 @@
     "react-scripts": "3.4.3",
     "react-spotify-api": "^3.0.0",
     "react-spotify-auth": "^1.1.1",
-    "tailwindcss": "^1.8.10",
-    "typeface-spartan": "^1.1.4"
+    "tailwindcss": "^1.8.10"
   },
   "scripts": {
     "start": "yarn watch:css && react-scripts start",

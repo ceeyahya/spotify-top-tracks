@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Spartan', ...defaultTheme.fontFamily.sans],
+        sans: ['Epilogue', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         spotify: {

@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet';
 import './assets/css/main.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-require('typeface-spartan');
+import Layout from './components/Layout';
+require('fontsource-epilogue');
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,10 +13,27 @@ ReactDOM.render(
       <meta charSet="utf-8" />
       <title>Top Tracks</title>
     </Helmet>
-    <body className="bg-gray-900">
-      <App />
-      <div className="static bottom-0 bg-gray-800">
-        <div className="max-w-screen-xl px-4 mx-auto py-14 sm:px-6 md:flex md:items-center md:justify-between lg:px-4">
+    <App />
+    <Layout>
+      <div className="static bottom-0">
+        <div className="max-w-screen-xl mx-auto py-14 md:flex md:items-center md:justify-between">
+          <div className="mt-4 mb-4 md:mt-0 md:order-1">
+            <p className="text-base leading-6 text-center text-gray-500">
+              <span role="img" className="ml-2" aria-label="computer man emoji">
+                👨🏽‍💻
+              </span>{' '}
+              Developed by{' '}
+              <a
+                className="font-semibold text-blue-200"
+                href="https://chahineyahya.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chahine Yahya
+              </a>{' '}
+              {new Date().getFullYear()}, All rights reserved.
+            </p>
+          </div>
           <div className="flex justify-center md:order-2">
             <a
               target="_blank"
@@ -44,26 +62,9 @@ ReactDOM.render(
               </svg>
             </a>
           </div>
-          <div className="mt-4 md:mt-0 md:order-1">
-            <p className="text-base leading-6 text-center text-gray-500">
-              <span role="img" aria-label="computer man emoji">
-                👨🏽‍💻
-              </span>{' '}
-              Developed by{' '}
-              <a
-                className="font-semibold text-blue-200"
-                href="https://chahineyahya.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chahine Yahya
-              </a>{' '}
-              {new Date().getFullYear()}, All rights reserved.
-            </p>
-          </div>
         </div>
       </div>
-    </body>
+    </Layout>
   </React.StrictMode>,
   document.getElementById('root')
 );
