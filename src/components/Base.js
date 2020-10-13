@@ -21,7 +21,7 @@ export function GridLayout({ children }, ref) {
 
 export function Card({ track }) {
   return (
-    <li className="col-span-1 bg-gray-200 rounded-sm">
+    <li className="col-span-1 bg-gray-100 border-2 border-gray-200 rounded-sm">
       <div className="flex items-start justify-between w-full p-6 space-x-6">
         <img
           className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-sm"
@@ -29,7 +29,7 @@ export function Card({ track }) {
           alt={`${track.album.name} album cover`}
         />
         <div className="flex-1 truncate">
-          <h3 className="text-sm font-medium leading-5 text-gray-900 truncate">
+          <h3 className="text-base font-bold leading-5 text-gray-900 truncate">
             {track.name}
           </h3>
           <span className="flex-shrink-0 inline-block text-sm font-bold leading-4 text-gray-500">

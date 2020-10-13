@@ -24,7 +24,7 @@ ReactDOM.render(
               </span>{' '}
               Developed by{' '}
               <a
-                className="font-semibold text-blue-200"
+                className="font-semibold text-blue-600"
                 href="https://chahineyahya.dev"
                 target="_blank"
                 rel="noopener noreferrer"
